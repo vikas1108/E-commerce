@@ -1,0 +1,46 @@
+.footer{
+    border: 2px solid white;
+    height: 400px;
+}
+.contact-us{
+    border: 2px solid white;
+    height: 200px;
+    background-color: white,
+   
+}
+.Agency-impatient{
+
+    border: 2px solid rebeccapurple;
+    height: 200px;
+    color: white;
+    background-color: black;
+}
+.arw{
+    margin-left: 3em;
+    border: 2px solid white;
+  width: 80px;
+            height: 80px;
+          
+            border-radius: 55px;
+            box-shadow: 1px 1px 1px 1px  gray;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+
+
+
+}
+
+
+
+/* marginLeft: "3em",
+        border: "2px solid white",
+        width: "80px",
+        height: "80px",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        borderRadius: "55px",
+        boxShadow: "1px 1px 1px gray",
+        cursor: "pointer", */
