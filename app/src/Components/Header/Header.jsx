@@ -13,7 +13,7 @@ export const Header = () => {
         <Navbar />
         <div className="second header">
           <div className="gss">
-            <button className="btn" onClick={handleScrollDown()}>
+            <button className="btn" onClick={handleScrollDown}>
               <svg
                 height="24"
                 width="24"

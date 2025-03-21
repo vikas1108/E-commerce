@@ -7,7 +7,8 @@ import { useEffect, useState } from 'react';
 // import { Header } from './Components/Header/Header';
 // import { Footer } from './Components/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
-
+import { HomePage } from './Pages/HomePage/HomePage';
+import axios from 'axios';
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -21,10 +22,10 @@ function App() {
   },[loading])
   
   return (<>
-    
     <div className='main-app'>
-      
-    </div>  
+      <HomePage/>
+
+     </div>
     
     
   </>
