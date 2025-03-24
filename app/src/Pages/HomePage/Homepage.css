@@ -72,7 +72,7 @@
   justify-content: center;
 }
 
-.card_box span::before {
+/* .card_box span::before {
   content: 'Premium';
   position: absolute;
   width: 160%;
@@ -87,7 +87,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
+} */
 
 /* Gradient Edge Effect */
 .card_box span::after {

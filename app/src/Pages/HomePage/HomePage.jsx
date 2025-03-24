@@ -38,7 +38,9 @@ export const HomePage = () => {
                       >
                         <div className="card-body">
                           <h5 className="card-title">{item.name}</h5>
-                          <p className="card-text">{item.description}</p>
+                          {console.log(item.slug, "description")}
+                          {/* <p className="card-text">{item.description}</p> */}
+                          {/* <button className="btn btn-danger">View</button> */}
                         </div>
                       </a>
                     </span>
