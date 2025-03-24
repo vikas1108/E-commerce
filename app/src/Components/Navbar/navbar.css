@@ -19,6 +19,32 @@
     margin-left: 1em;
     text-decoration: none;
     color: white;
+    /* border: 1px solid black;
+    padding: 1px ; */
+    /* background-color: skyblue; */
 
 }
 
+.elems :link:hover{
+    color: blue;
+} 
+/* .elems:link:active{
+    border: 1px solid white;
+    width: 30px;
+    background-color: red;
+} */
+.search-bar{
+    border: 1px solid white;
+    width:400px ;
+    border-radius: 25px;
+    padding: 0.5em;
+    justify-content: center;
+    align-items: center;
+}
+.search-input{
+        border: 1px solid white;
+        border-radius: 25px;
+        width: 300px;
+        text-align: center;
+
+}

@@ -6,7 +6,7 @@ import "./Footer.css";
 export const Footer = () => {
   const navigate = useNavigate();
   const redirectContactus = () => {
-    console.log("hello contact us");
+    // console.log("hello contact us");
     navigate("/Contact-us");
     // navigate("/path", { replace: true });
   };

@@ -1,17 +1,43 @@
 import React from "react";
 import { Navbar } from "../Navbar/Navbar";
+import { useState } from "react";
 import "./header.css";
 
-export const Header = () => {
+export const Header = ({ searchField, searchPermission }) => {
+  const [getSearchData, setGetSearchData] = useState([]);
   const handleScrollDown = () => {
-    console.log("get start shoping");
+    // console.log("get start shoping");
     window.scrollTo({ top: 1000, behavior: "smooth" });
+  };
+  const handleInputData = (searchinputData) => {
+    setGetSearchData(searchinputData);
+    searchField(searchinputData);
+    console.log(searchinputData, "--search input data");
+  };
+  // console.log(searchField, "---search field");
+  // console.log(searchPermission, "--searchPermission");
+  const handleGetPermission = (spermit) => {
+    console.log("spermit", spermit);
+    searchPermission(spermit);
   };
   return (
     <>
       <div className="header">
-        <Navbar />
+        <Navbar getData={handleInputData} getPermission={handleGetPermission} />
         <div className="second header">
+          <p className="h1 text-secondary display-1">Special Offers</p>
+          <small
+            className="fw-bold text-secondary"
+            style={{
+              border: "1px solid white",
+              backgroundColor: "white",
+              marginLeft: "1em",
+              boxShadow: "1px 1px 1px white",
+              borderRadius: "3px",
+            }}
+          >
+            Buy 2 get 1 free in just Rs-/499
+          </small>
           <div className="gss">
             <button className="btn" onClick={handleScrollDown}>
               <svg

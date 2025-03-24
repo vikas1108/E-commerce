@@ -115,6 +115,14 @@
   text-align: center;
   
 }
+.Ndf{
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  width: 100%;
+  background-color: black;
+  /* height: 400px; */
+}
 
 /* Responsive Grid */
 @media (max-width: 768px) {
