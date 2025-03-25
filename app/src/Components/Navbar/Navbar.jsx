@@ -69,13 +69,13 @@ export const Navbar = ({ getData, getPermission }) => {
         </div>
 
         <div className="elems fw-bold">
-          <Link to="/home" className="text-white nelem">
+          <Link to="/" className=" nelem">
             Home
           </Link>
-          <Link to="/Shop" className="text-white nelem">
+          <Link to="/Shop" className=" nelem">
             Shop
           </Link>
-          <Link to="/Contact-us" className="text-white nelem">
+          <Link to="/Contact-us" className=" nelem">
             Contact us
           </Link>
           {/* <Link to="/search" className="text-white nelem">
