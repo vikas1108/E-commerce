@@ -28,15 +28,15 @@ function App() {
   
   return (<>
    
-    {/* <Routes>
+    <Routes>
       <Route path={"/"} element={<HomePage />}></Route>
       <Route path='/shop' element={<ShopPage />}></Route>
       <Route path='/user/items'></Route>
       <Route path="/Contact-us"></Route>
-    </Routes> */}
-    <Card imgsrc={"https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/thumbnail.png"}
+    </Routes>
+    {/* <Card imgsrc={"https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Air%20Jordan%201%20Red%20And%20Black/thumbnail.png"}
       title={"Nike Air Jordan"}
-      price={"20$"} />
+      price={"20$"} /> */}
     
   </>
    
