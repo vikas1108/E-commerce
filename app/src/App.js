@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 // import { Footer } from './Components/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
 import { HomePage } from './Pages/HomePage/HomePage';
+import { ShopPage } from './Pages/ShopPage/ShopPage';
 // import axios from 'axios';
 
 function App() {
@@ -24,11 +25,15 @@ function App() {
 
   
   return (<>
-    <div className='main-app'>
+   
+    <Routes>
+      <Route path="/" element={<HomePage />}></Route>
+      <Route path='/shop' element={<ShopPage/>}></Route>
       
-      <HomePage/>
+      </Routes>
+      
 
-     </div>
+     
     
     
   </>

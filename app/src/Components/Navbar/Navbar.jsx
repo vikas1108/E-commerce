@@ -9,6 +9,7 @@ import { useState } from "react";
 export const Navbar = ({ getData, getPermission }) => {
   const [searchinput, setSearchInput] = useState("");
   const [isSearch, setIsSearch] = useState(false);
+  const [isCloseSearchBar, setIsCloseSearchBar] = useState(true);
 
   const handleSearch = () => {
     if (isSearch === false) {
@@ -77,9 +78,9 @@ export const Navbar = ({ getData, getPermission }) => {
           <Link to="/Contact-us" className="text-white nelem">
             Contact us
           </Link>
-          <Link to="/search" className="text-white nelem">
+          {/* <Link to="/search" className="text-white nelem">
             <FaSearch />
-          </Link>
+          </Link> */}
           <Link to="/user/items" className="text-white nelem isActive">
             <LuShoppingCart />
           </Link>
@@ -91,3 +92,26 @@ export const Navbar = ({ getData, getPermission }) => {
     </>
   );
 };
+
+{
+  /* <div className="nav">
+  <div className="fw-bold shp fs-5">Shop</div>
+  <div className="elems fw-bold">
+    <Link to="/home" className="text-white nelem">
+      Home
+    </Link>
+    <Link to="/Shop" className="text-white nelem">
+      Shop
+    </Link>
+    <Link to="/Contact-us" className="text-white nelem">
+      Contact us
+    </Link>
+    <Link to="/search" className="text-white nelem">
+      <FaSearch />
+    </Link>
+    <Link to="/user/items" className="text-white nelem isActive">
+      <LuShoppingCart />
+    </Link>
+  </div>
+</div>; */
+}

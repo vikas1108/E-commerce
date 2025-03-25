@@ -15,6 +15,21 @@ const funnnydata = async () => {
      
      
     
-   }
+}
+
+
+const shoesData = async () => {
+  let sneakerData;
+  await axios.get("https://dummyjson.com/products/category/mens-shoes").then((res) => {
+    console.log(res, "response of shoes category")
+    sneakerData = res;
+  }).catch((err) => {
+    console.log(err,"error")
+  })
+  return sneakerData;
+  
+}
+   
+const MensShoes = shoesData();
 const ProductData = funnnydata();
-export default ProductData;
+export default {ProductData,MensShoes}

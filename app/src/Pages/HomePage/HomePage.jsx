@@ -102,6 +102,7 @@ export const HomePage = () => {
                             className="category-link"
                           >
                             <div className="card-body">
+                              <h3>Category</h3>
                               <h5 className="card-title">{item.name}</h5>
                               {/* {console.log(item.slug, "description")} */}
                               <Link className="card-text" to={`/${item.name}`}>
