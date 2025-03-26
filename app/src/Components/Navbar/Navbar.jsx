@@ -3,46 +3,8 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
 import "./navbar.css";
-import { useRef } from "react";
-import { useState } from "react";
 
-export const Navbar = ({ getData, getPermission }) => {
-  const [searchinput, setSearchInput] = useState("");
-  const [isSearch, setIsSearch] = useState(false);
-  const [isCloseSearchBar, setIsCloseSearchBar] = useState(true);
-
-  const handleSearch = () => {
-    if (isSearch === false) {
-      setIsSearch(true);
-      getPermission(true);
-    } else {
-      setIsSearch(false);
-      getPermission(false);
-      let value = "";
-      handleSearchInput(value);
-    }
-  };
-  const handleSearchInput = (data) => {
-    let value = data;
-    setSearchInput(value);
-    console.log(value, "");
-    if (value === "") {
-      setIsSearch(false);
-      setSearchInput("");
-      getData(value);
-    } else {
-      setSearchInput(value);
-      getData(value);
-    }
-    // if (isSearch === false) {
-    //   console.log(e.target.value, "search element");
-    //   setSearchInput(value);
-    //   getData(value);
-    // } else {
-    //   setSearchInput("");
-    //   getData("");
-    // }
-  };
+export const Navbar = ({ getData, getPermission, cartCount }) => {
   return (
     <>
       <div className="nav">
@@ -51,20 +13,19 @@ export const Navbar = ({ getData, getPermission }) => {
           <input
             className="search-input"
             placeholder="search here"
-            value={searchinput}
-            onChange={(e) => handleSearchInput(e.target.value)}
-          ></input>
+            onChange={(e) => getData(e.target.value)}
+          />
           <button
             style={{
               border: "1px solid skyblue",
               width: "70px",
               color: "white",
-              backgroundColor: "	#0096FF",
+              backgroundColor: "#0096FF",
               borderRadius: "20px",
             }}
-            onClick={() => handleSearch()}
+            onClick={() => getPermission(true)}
           >
-            {isSearch ? "Clear" : "Search"}
+            Search
           </button>
         </div>
 
@@ -78,40 +39,31 @@ export const Navbar = ({ getData, getPermission }) => {
           <Link to="/Contact-us" className=" nelem">
             Contact us
           </Link>
-          {/* <Link to="/search" className="text-white nelem">
-            <FaSearch />
-          </Link> */}
-          <Link to="/user/items" className="text-white nelem isActive">
+          <Link
+            to="/user/items"
+            className="text-white nelem isActive"
+            style={{ position: "relative" }}
+          >
             <LuShoppingCart />
+            {cartCount > 0 && (
+              <span
+                style={{
+                  position: "absolute",
+                  top: "-5px",
+                  right: "-10px",
+                  background: "red",
+                  color: "white",
+                  borderRadius: "50%",
+                  padding: "5px 10px",
+                  fontSize: "12px",
+                }}
+              >
+                {cartCount}
+              </span>
+            )}
           </Link>
         </div>
-        {/* <div>
-          <p className="fw-bold">Sign In</p>
-        </div> */}
       </div>
     </>
   );
 };
-
-{
-  /* <div className="nav">
-  <div className="fw-bold shp fs-5">Shop</div>
-  <div className="elems fw-bold">
-    <Link to="/home" className="text-white nelem">
-      Home
-    </Link>
-    <Link to="/Shop" className="text-white nelem">
-      Shop
-    </Link>
-    <Link to="/Contact-us" className="text-white nelem">
-      Contact us
-    </Link>
-    <Link to="/search" className="text-white nelem">
-      <FaSearch />
-    </Link>
-    <Link to="/user/items" className="text-white nelem isActive">
-      <LuShoppingCart />
-    </Link>
-  </div>
-</div>; */
-}
