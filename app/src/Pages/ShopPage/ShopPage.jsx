@@ -2,12 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Navbar } from "../../Components/Navbar/Navbar";
 import { Card } from "../../Components/Cards/Card";
 import axios from "axios";
+import "./ShopPage.css";
 
 export const ShopPage = () => {
   const [productsData, setProductsData] = useState([]);
   const [cartCount, setCartCount] = useState(0); // State for cart count
 
-  const categories = ["mens-shoes", "mens-shirts", "mens-watches"];
+  const categories = [
+    "mens-shoes",
+    "mens-shirts",
+    "mens-watches",
+    "Fragrances",
+    "Sunglasses",
+    "Womens-Shoes",
+    "Tops",
+    "Women-Jwellery",
+  ];
 
   const fetchProductsData = async () => {
     try {
@@ -40,7 +50,9 @@ export const ShopPage = () => {
 
   return (
     <>
-      <Navbar cartCount={cartCount} />
+      <div id="nav">
+        <Navbar cartCount={cartCount} />
+      </div>
       <div
         style={{
           display: "flex",

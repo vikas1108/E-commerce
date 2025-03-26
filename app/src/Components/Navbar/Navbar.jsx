@@ -2,9 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
+import { useState } from "react";
 import "./navbar.css";
 
 export const Navbar = ({ getData, getPermission, cartCount }) => {
+  const [isSearching, setIsSearching] = useState(false);
   return (
     <>
       <div className="nav">
@@ -23,9 +25,17 @@ export const Navbar = ({ getData, getPermission, cartCount }) => {
               backgroundColor: "#0096FF",
               borderRadius: "20px",
             }}
-            onClick={() => getPermission(true)}
+            onClick={() => {
+              if (isSearching == false) {
+                getPermission(true);
+                setIsSearching(true);
+              } else {
+                getPermission(false);
+                setIsSearching(false);
+              }
+            }}
           >
-            Search
+            {!isSearching ? "Search" : "Clear"}
           </button>
         </div>
 
