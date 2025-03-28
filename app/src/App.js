@@ -1,50 +1,53 @@
-import logo from './logo.svg';
-import Temporary from './Pages';
-import PageLoader from './Components';
-import { Navbar } from './Components/Navbar/Navbar';
-import './App.css';
-import { useEffect, useState } from 'react';
-// import { Header } from './Components/Header/Header';
-// import { Footer } from './Components/Footer/Footer';
-import { Route, Routes } from 'react-router-dom';
-import { HomePage } from './Pages/HomePage/HomePage';
-import { ShopPage } from './Pages/ShopPage/ShopPage';
-import { ShopItemPage } from './Pages/ShopItemPage/ShopItempage';
-import { Card } from './Components/Cards/Card';
-// import axios from 'axios';
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { HomePage } from "./Pages/HomePage/HomePage";
+import { ShopPage } from "./Pages/ShopPage/ShopPage";
+import { ShopItemPage } from "./Pages/ShopItemPage/ShopItempage";
+import PageLoader from "./Components/FullPageLoader/PageLoader";
+import "./App.css";
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState("beauty");
+  const navigate = useNavigate(); // Use to navigate programmatically
 
+  // Set loading state to false after 2 seconds (this can be improved for better UX)
   useEffect(() => {
     if (loading === true) {
       setTimeout(() => {
-          setLoading(false)
-      },2000)
+        setLoading(false);
+      }, 2000); // Simulate loading for 2 seconds
     }
-  }, [loading])
-  const handleLocation = (category) => {
-    console.log(category, "category is url")
-      setLocation(category)   
-  
-  }
-  
-  
+  }, [loading]);
 
-  
-  return (<>
-   
-    <Routes>
-      <Route path={"/"} element={<HomePage Shoplocation={handleLocation} />}></Route>
-      <Route path="/shop" element={<ShopPage />}></Route>
-      <Route path={`/shop/${location}`} element={<ShopItemPage located={location} />}></Route>
-      <Route path='/user/items'></Route>
-      <Route path="/Contact-us"></Route>
-    </Routes>
-    
-  </>
-   
+  // Function to handle location/category change
+  const handleLocation = (category) => {
+    setLocation(category);
+    navigate(`/shop/${category}`); // Navigate to the respective category page
+  };
+
+  return (
+    <>
+      {/* You could show a loading screen here if needed */}
+      {loading ? (
+        <div>Loading...</div> // Replace with a spinner or animation if desired
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage Shoplocation={handleLocation} />}
+          />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route
+            path={`/shop/${location}`}
+            element={<ShopItemPage located={location} />}
+          />
+          {/* Optionally handle '/user/items' and '/Contact-us' with proper components */}
+          <Route path="/user/items" element={<div>User Items Page</div>} />
+          <Route path="/Contact-us" element={<div>Contact Us Page</div>} />
+        </Routes>
+      )}
+    </>
   );
 }
 
