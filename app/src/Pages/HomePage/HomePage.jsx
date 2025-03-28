@@ -6,8 +6,9 @@ import myContext from "../../Context/mycontext";
 // import Card from "../../UIelement/index";
 import "./Homepage.css";
 import { Link } from "react-router-dom";
+import { useCallback } from "react";
 
-export const HomePage = () => {
+export const HomePage = ({ Shoplocation }) => {
   const [data, setData] = useState([]);
   const [spermission, setSpermission] = useState(false);
   const [sinput, setSInput] = useState("");
@@ -34,6 +35,7 @@ export const HomePage = () => {
     setSpermission(permit);
     trigerSearchFunction();
   };
+
   const trigerSearchFunction = () => {
     if (spermission === true) {
       console.log(sinput, "search input was like");
@@ -41,7 +43,6 @@ export const HomePage = () => {
       let dt = data.filter(
         (item) => item.name === sinput || item.slug === sinput
       );
-      console.log("dt", dt);
       if (dt.length === 0) {
         setIsNoData(true);
       } else {
@@ -55,6 +56,10 @@ export const HomePage = () => {
       setData(productsInfo);
     }
   };
+
+  // useCallback(() => {
+  //   console.log("this is current location of ", window.location.href);
+  // }, [window.location.href]);
 
   useEffect(() => {
     if (spermission === true) {
@@ -96,16 +101,26 @@ export const HomePage = () => {
                         {/* Clickable Category */}
                         <span>
                           <a
-                            href={item.url}
+                            href={`/shop/${item.name}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="category-link"
+                            onClick={() => Shoplocation(item.slug)}
                           >
                             <div className="card-body">
                               <h3>Category</h3>
-                              <h5 className="card-title">{item.name}</h5>
+                              <h5
+                                className="card-title"
+                                // style={{ pointerEvents: "none" }}
+                                onClick={() => console.log("none clicakble")}
+                              >
+                                {item.name}
+                              </h5>
                               {/* {console.log(item.slug, "description")} */}
-                              <Link className="card-text" to={`/${item.name}`}>
+                              <Link
+                                className="card-text"
+                                to={`shop/${item.name}`}
+                              >
                                 View
                               </Link>
                               {/* <button className="btn btn-danger">View</button> */}

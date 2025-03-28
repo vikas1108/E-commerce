@@ -26,13 +26,7 @@ export const Navbar = ({ getData, getPermission, cartCount }) => {
               borderRadius: "20px",
             }}
             onClick={() => {
-              if (isSearching == false) {
-                getPermission(true);
-                setIsSearching(true);
-              } else {
-                getPermission(false);
-                setIsSearching(false);
-              }
+              getPermission(true);
             }}
           >
             {!isSearching ? "Search" : "Clear"}
